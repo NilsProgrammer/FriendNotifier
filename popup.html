@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        font-family: Arial;
+        width: 320px;
+        min-height: 500px;  /* make popup taller */
+        margin: 0;
+        padding: 10px;
+        overflow-y: auto;   /* scroll if needed */
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    button {
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 6px 0;
+    }
+
+    .actions button {
+      margin-left: 4px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background: white;
+        margin: 40px auto;
+        padding: 10px;
+        width: 280px;
+        border-radius: 6px;
+        position: relative;
+        max-height: 300px;   /* limit height */
+        display: flex;
+        flex-direction: column;
+    }
+
+    #friendHistory {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-y: auto;
+        flex: 1;               /* fills remaining space */
+    }
+
+    #friendHistory button {
+        white-space: normal;
+    }
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button id="reload">Reload Now</button>
+        <strong>Roblox Stalker</strong>
+        <button id="clearStorage">Clear Storage</button>
+    </div>
+
+  
+
+  <input id="userId" placeholder="Roblox User ID" />
+  <input id="nickname" placeholder="Nickname" />
+  <button id="addUser">Add User</button>
+
+  <hr>
+
+  <ul id="userList"></ul>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">X</span>
+      <h4>All-Time Friends</h4>
+      <div class="modal-header">
+        <button id="exportHistory">Export</button>
+        <span id="modalTitle"></span>
+      </div>
+      <ul id="friendHistory"></ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
